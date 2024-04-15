@@ -22,11 +22,12 @@ class Komplex{
         return this->re == k.re && this->im == k.im;
     }
     
+	// összeadás, a + nem módosítja önmagát ezért konstans fv.
     Komplex operator+(const Komplex &k) const{
         return Komplex(this->re + k.re, this->im + k.im);
     }
     
-    Komplex operator+(const double number){
+    Komplex operator+(const double number) const{
         return *this + Komplex(number, 0);
     }
     
@@ -42,6 +43,7 @@ class Komplex{
         return Komplex(this->re, this->im * -1);
     }
     
+	// szorzás, a * nem módosítja önmagát ezért konstans fv.
     Komplex operator*(const Komplex &k) const{
         return Komplex(this->re * k.re - this->im * k.im, this->re * k.im + this->im * k.re);
     }
@@ -50,11 +52,11 @@ class Komplex{
         return *this * Komplex(number);
     }
     
-    Komplex operator*=(const Komplex &k){
+    Komplex& operator*=(const Komplex &k){
         return *this = *this * k;
     }
     
-    Komplex operator*=(const double number){
+    Komplex& operator*=(const double number){
         return *this = *this * Komplex(number);
     }
 };

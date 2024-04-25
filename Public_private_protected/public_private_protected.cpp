@@ -1,5 +1,11 @@
 #include <iostream>
 
+/*
+Public members are accessible for all and everyone.
+Private members are only accessible within the class defining them.
+Protected members are accessible in the class that defines them and in classes that inherit from that class.
+*/
+
 class A {
   public:
     int x, y;
